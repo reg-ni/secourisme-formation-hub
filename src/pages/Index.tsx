@@ -7,6 +7,7 @@ import Formations from '../components/sections/Formations';
 import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 /**
  * Main Index Page
@@ -35,6 +36,21 @@ const Index = () => {
     window.open('./index.html', '_blank');
   };
 
+  // Fonction pour télécharger le fichier IPSEN HTML
+  const downloadIPSENHTML = () => {
+    const link = document.createElement('a');
+    link.href = './ipsen.html'; // Point vers le fichier statique dans le dossier public
+    link.download = 'ipsen.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Fonction pour ouvrir le fichier IPSEN HTML dans un nouvel onglet
+  const openIPSENHTML = () => {
+    window.open('./ipsen.html', '_blank');
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation Bar (fixed at top) */}
@@ -61,13 +77,31 @@ const Index = () => {
             <p className="text-gray-600 mb-6">
               Accédez à la version HTML statique du site que vous pouvez ouvrir directement dans votre navigateur sans installation.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <Button onClick={openHTML} className="bg-orange-500 hover:bg-orange-600">
                 Ouvrir la version HTML
               </Button>
               <Button onClick={downloadHTML} variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-100">
                 Télécharger la version HTML
               </Button>
+            </div>
+            
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Page IPSEN</h3>
+              <p className="text-gray-600 mb-6">
+                Accédez à la page de formations IPSEN avec calendrier et formulaire d'inscription.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/ipsen" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors inline-flex items-center justify-center">
+                  Voir la page IPSEN (React)
+                </Link>
+                <Button onClick={openIPSENHTML} className="bg-orange-500 hover:bg-orange-600">
+                  Ouvrir la version HTML
+                </Button>
+                <Button onClick={downloadIPSENHTML} variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-100">
+                  Télécharger la version HTML
+                </Button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,17 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import Logo from '../ui/logo';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -22,74 +20,102 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-2 bg-white/90 shadow-md backdrop-blur-sm' : 'py-4 bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Logo size="sm" className="cursor-pointer" />
+    <header className={`sticky top-0 z-50 transition-all duration-200 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-bold text-orange-500">SEMA</span>
+              <span className="text-2xl font-bold text-gray-700">PREV</span>
+            </Link>
+          </div>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {[
-              { name: 'Accueil', id: 'hero' },
-              { name: 'Formations', id: 'formations' },
-              { name: 'À propos', id: 'about' },
-              { name: 'Contact', id: 'contact' },
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-semaprev-gray font-medium hover:text-semaprev-orange transition-colors"
-              >
-                {item.name}
-              </button>
-            ))}
-            <button className="btn-primary">Demander un devis</button>
-          </nav>
-
+          {/* Desktop Menu */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-center space-x-8">
+              <Link to="/" className="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+                Accueil
+              </Link>
+              <a href="#formations" className="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+                Formations
+              </a>
+              <a href="#about" className="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+                À propos
+              </a>
+              <Link to="/ipsen" className="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+                IPSEN
+              </Link>
+              <a href="#contact" className="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-md font-medium transition-colors">
+                Contact
+              </a>
+            </div>
+          </div>
+          
           {/* Mobile Menu Button */}
-          <button onClick={toggleMenu} className="md:hidden text-semaprev-gray">
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div 
-        className={`md:hidden fixed inset-0 z-40 bg-white transform ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out pt-20`}
-      >
-        <div className="flex flex-col space-y-6 p-6">
-          {[
-            { name: 'Accueil', id: 'hero' },
-            { name: 'Formations', id: 'formations' },
-            { name: 'À propos', id: 'about' },
-            { name: 'Contact', id: 'contact' },
-          ].map((item) => (
+          <div className="md:hidden">
             <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="text-semaprev-gray font-medium text-xl hover:text-semaprev-orange transition-colors"
+              type="button"
+              className="text-gray-600 hover:text-orange-500 focus:outline-none"
+              onClick={toggleMenu}
             >
-              {item.name}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
-          ))}
-          <button className="btn-primary mt-4 w-full">Demander un devis</button>
+          </div>
         </div>
-      </div>
+      </nav>
+      
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <Link
+              to="/"
+              className="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Accueil
+            </Link>
+            <a
+              href="#formations"
+              className="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Formations
+            </a>
+            <a
+              href="#about"
+              className="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              À propos
+            </a>
+            <Link
+              to="/ipsen"
+              className="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              IPSEN
+            </Link>
+            <a
+              href="#contact"
+              className="block mt-4 px-3 py-2 bg-orange-500 text-white hover:bg-orange-600 rounded-md font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

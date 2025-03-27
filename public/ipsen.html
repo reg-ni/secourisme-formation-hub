@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEMA PREV - Formations IPSEN</title>
+  <meta name="description" content="SEMA PREV - Formations en prévention des risques professionnels pour IPSEN.">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Styles personnalisés */
+    .btn-primary {
+      background-color: #f97316;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: all 300ms;
+    }
+    .btn-primary:hover {
+      background-color: #ea580c;
+    }
+    .selected-card {
+      border-color: #f97316;
+      box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center">
+            <span class="text-2xl font-bold text-orange-500">SEMA</span>
+            <span class="text-2xl font-bold text-gray-700">PREV</span>
+          </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-8">
+            <a href="index.html" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              Accueil
+            </a>
+            <a href="index.html#formations" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              Formations
+            </a>
+            <a href="index.html#about" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              À propos
+            </a>
+            <a href="ipsen.html" class="text-orange-500 font-medium transition-colors">
+              IPSEN
+            </a>
+            <a href="index.html#contact" class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-md font-medium transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button
+            type="button"
+            class="text-gray-600 hover:text-orange-500 focus:outline-none"
+            id="mobileMenuButton"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          Accueil
+        </a>
+        <a href="index.html#formations" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          Formations
+        </a>
+        <a href="index.html#about" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          À propos
+        </a>
+        <a href="ipsen.html" class="block px-3 py-2 text-orange-500 font-medium transition-colors">
+          IPSEN
+        </a>
+        <a href="index.html#contact" class="block mt-4 px-3 py-2 bg-orange-500 text-white hover:bg-orange-600 rounded-md font-medium transition-colors">
+          Contact
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-blue-50 to-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Formations IPSEN
+          </h1>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Découvrez les prochaines sessions de formation disponibles et inscrivez-vous directement en ligne.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sessions de formation -->
+    <section class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          Calendrier des prochaines sessions
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="sessions-container">
+          <!-- Les sessions seront générées dynamiquement par JavaScript -->
+        </div>
+      </div>
+    </section>
+    
+    <!-- Formulaire d'inscription -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">
+          Formulaire d'inscription
+        </h2>
+        <p class="text-center text-gray-600 mb-8">
+          Complétez le formulaire ci-dessous pour vous inscrire à une session de formation
+        </p>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <form id="registration-form" class="space-y-6">
+            <!-- Nom complet -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                placeholder="Entrez votre nom complet"
+              >
+            </div>
+            
+            <!-- Email et téléphone sur une ligne -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="votre@email.com"
+                >
+              </div>
+              
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  required 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Votre numéro de téléphone"
+                >
+              </div>
+            </div>
+            
+            <!-- Entreprise -->
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Entreprise</label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company" 
+                required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                placeholder="Nom de votre entreprise"
+              >
+            </div>
+            
+            <!-- Session sélectionnée -->
+            <div>
+              <label for="selected-session" class="block text-sm font-medium text-gray-700 mb-1">Session sélectionnée</label>
+              <input 
+                type="text" 
+                id="selected-session" 
+                name="selected-session" 
+                readonly 
+                required 
+                class="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+                placeholder="Veuillez sélectionner une session ci-dessus"
+              >
+              <input type="hidden" id="session-date" name="session-date">
+              <input type="hidden" id="session-title" name="session-title">
+              <input type="hidden" id="session-location" name="session-location">
+            </div>
+            
+            <!-- Message optionnel -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (optionnel)</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                placeholder="Information supplémentaire concernant votre inscription"
+              ></textarea>
+            </div>
+            
+            <!-- Bouton de soumission -->
+            <button 
+              type="submit" 
+              class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              id="submit-button"
+              disabled
+            >
+              Envoyer ma demande d'inscription
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Logo and Description -->
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-bold text-orange-500">SEMA</span>
+            <span class="text-2xl font-bold text-gray-300">PREV</span>
+          </div>
+          <p class="text-gray-400 mb-4 pr-4">
+            SEMA PREV propose des formations de qualité en prévention des risques professionnels, adaptées aux besoins de votre entreprise.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <span class="sr-only">Facebook</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <span class="sr-only">Twitter</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <span class="sr-only">LinkedIn</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
+            Navigation
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-white">
+                Accueil
+              </a>
+            </li>
+            <li>
+              <a href="index.html#formations" class="text-gray-400 hover:text-white">
+                Formations
+              </a>
+            </li>
+            <li>
+              <a href="index.html#about" class="text-gray-400 hover:text-white">
+                À propos
+              </a>
+            </li>
+            <li>
+              <a href="ipsen.html" class="text-gray-400 hover:text-white">
+                IPSEN
+              </a>
+            </li>
+            <li>
+              <a href="index.html#contact" class="text-gray-400 hover:text-white">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
+            Contact
+          </h3>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              123 rue du Secourisme, 75000 Paris
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>01 23 45 67 89</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <a href="mailto:n.regnier@semaprev.fr">n.regnier@semaprev.fr</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-8 mt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2024 SEMA PREV. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Données des sessions de formation
+    const trainingSessions = [
+      {
+        id: 1,
+        title: 'Formation SST - Initiale',
+        date: new Date(2024, 8, 15), // 15 septembre 2024
+        duration: '2 jours',
+        spots: 12,
+        location: 'Paris - Centre IPSEN'
+      },
+      {
+        id: 2,
+        title: 'Formation SST - Recyclage',
+        date: new Date(2024, 8, 22), // 22 septembre 2024
+        duration: '1 jour',
+        spots: 10,
+        location: 'Paris - Centre IPSEN'
+      },
+      {
+        id: 3,
+        title: 'Formation Gestes et Postures',
+        date: new Date(2024, 9, 5), // 5 octobre 2024
+        duration: '1 jour',
+        spots: 15,
+        location: 'Lyon - Centre IPSEN'
+      },
+      {
+        id: 4,
+        title: 'Formation Prévention Incendie',
+        date: new Date(2024, 9, 12), // 12 octobre 2024
+        duration: '1 jour',
+        spots: 12,
+        location: 'Paris - Centre IPSEN'
+      },
+      {
+        id: 5,
+        title: 'Formation PSC1',
+        date: new Date(2024, 10, 8), // 8 novembre 2024
+        duration: '1 jour',
+        spots: 10,
+        location: 'Paris - Centre IPSEN'
+      }
+    ];
+
+    // Formatage de date
+    function formatDate(date) {
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      return date.toLocaleDateString('fr-FR', options);
+    }
+
+    // Variables globales
+    let selectedSessionId = null;
+    const submitButton = document.getElementById('submit-button');
+    const selectedSessionInput = document.getElementById('selected-session');
+    const sessionDateInput = document.getElementById('session-date');
+    const sessionTitleInput = document.getElementById('session-title');
+    const sessionLocationInput = document.getElementById('session-location');
+
+    // Génération des cartes de session
+    function renderSessions() {
+      const container = document.getElementById('sessions-container');
+      
+      trainingSessions.forEach(session => {
+        const card = document.createElement('div');
+        card.className = 'border rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md border-gray-200';
+        card.setAttribute('data-session-id', session.id);
+        
+        card.innerHTML = `
+          <div class="p-5">
+            <div class="flex justify-between items-start">
+              <h3 class="font-semibold text-gray-900">${session.title}</h3>
+              <span class="session-check hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </div>
+            
+            <div class="mt-3 space-y-2">
+              <div class="flex items-center text-sm text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                </svg>
+                ${formatDate(session.date)}
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <span class="mr-2 font-medium">Durée:</span> ${session.duration}
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <span class="mr-2 font-medium">Places:</span> ${session.spots} disponibles
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <span class="mr-2 font-medium">Lieu:</span> ${session.location}
+              </div>
+            </div>
+            
+            <button class="select-session-btn mt-4 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600">
+              Sélectionner cette session
+            </button>
+          </div>
+        `;
+        
+        container.appendChild(card);
+        
+        // Ajouter l'écouteur d'événement pour le bouton de sélection
+        const selectButton = card.querySelector('.select-session-btn');
+        selectButton.addEventListener('click', () => {
+          selectSession(session);
+        });
+      });
+    }
+
+    // Sélection d'une session
+    function selectSession(session) {
+      // Réinitialiser toutes les cartes
+      document.querySelectorAll('[data-session-id]').forEach(card => {
+        card.classList.remove('selected-card');
+        card.querySelector('.session-check').classList.add('hidden');
+      });
+      
+      // Marquer la session sélectionnée
+      const selectedCard = document.querySelector(`[data-session-id="${session.id}"]`);
+      selectedCard.classList.add('selected-card');
+      selectedCard.querySelector('.session-check').classList.remove('hidden');
+      
+      // Mettre à jour les champs de formulaire
+      selectedSessionId = session.id;
+      selectedSessionInput.value = `${session.title} - ${formatDate(session.date)}`;
+      sessionDateInput.value = formatDate(session.date);
+      sessionTitleInput.value = session.title;
+      sessionLocationInput.value = session.location;
+      
+      // Activer le bouton de soumission
+      submitButton.disabled = false;
+    }
+
+    // Initialisation lors du chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Générer les sessions
+      renderSessions();
+      
+      // Toggle du menu mobile
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+      
+      // Gestion du formulaire
+      const form = document.getElementById('registration-form');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!selectedSessionId) {
+          alert('Veuillez sélectionner une session de formation.');
+          return;
+        }
+        
+        // Collecter les données du formulaire
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          company: document.getElementById('company').value,
+          sessionTitle: document.getElementById('session-title').value,
+          sessionDate: document.getElementById('session-date').value,
+          sessionLocation: document.getElementById('session-location').value,
+          message: document.getElementById('message').value
+        };
+        
+        // Dans un vrai cas d'utilisation, vous enverriez ces données via AJAX à un serveur
+        // Pour cet exemple, nous allons simplement simuler l'envoi d'un email
+        console.log('Données à envoyer par email à n.regnier@semaprev.fr:', formData);
+        
+        // Montrer un message de succès
+        alert(`Merci ${formData.name} ! Votre demande d'inscription à la session "${formData.sessionTitle}" a été envoyée avec succès. Nous vous contacterons prochainement pour confirmer votre participation.`);
+        
+        // Réinitialiser le formulaire
+        form.reset();
+        selectedSessionId = null;
+        selectedSessionInput.value = '';
+        submitButton.disabled = true;
+        
+        // Réinitialiser l'affichage des sessions
+        document.querySelectorAll('[data-session-id]').forEach(card => {
+          card.classList.remove('selected-card');
+          card.querySelector('.session-check').classList.add('hidden');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
