@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEMA PREV - Contact Form Example</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #4f5458; /* semaprev-gray */
+      background-color: #f9fafb;
+    }
+    
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #bbbbbb; /* semaprev-lightgray */
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .contact-form {
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .input-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #e95b2a; /* semaprev-orange */
+      box-shadow: 0 0 0 2px rgba(233, 91, 42, 0.2);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    button {
+      width: 100%;
+      background-color: #e95b2a; /* semaprev-orange */
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #d04c1f;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 640px) {
+      .contact-info {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .contact-card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .icon-circle {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: rgba(233, 91, 42, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .contact-details {
+      color: #bbbbbb;
+    }
+    
+    .map-container {
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      height: 320px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <section class="section-container">
+    <h2>Contactez-nous</h2>
+    <p class="subtitle">Besoin d'informations ou d'un devis personnalisé ? Nous sommes à votre écoute</p>
+    
+    <div class="form-grid">
+      <div class="contact-form">
+        <h3 class="form-title">Envoyez-nous un message</h3>
+        <form id="contactForm">
+          <div class="input-group">
+            <div class="input-row">
+              <div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" placeholder="Votre nom">
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Votre email">
+              </div>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="subject">Objet</label>
+            <input type="text" id="subject" placeholder="Objet de votre message">
+          </div>
+          
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Votre message"></textarea>
+          </div>
+          
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+      
+      <div>
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e95b2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h4 class="contact-title">Téléphone</h4>
+            <a href="tel:+33123456789" class="contact-details">01 23 45 67 89</a>
+          </div>
+          
+          <div class="contact-card">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e95b2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <h4 class="contact-title">Email</h4>
+            <a href="mailto:contact@semaprev.fr" class="contact-details">contact@semaprev.fr</a>
+          </div>
+          
+          <div class="contact-card">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e95b2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h4 class="contact-title">Adresse</h4>
+            <p class="contact-details">123 rue du Secourisme, 75000 Paris</p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e95b2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h4 class="contact-title">Horaires</h4>
+            <p class="contact-details">Lun-Ven: 9h-18h</p>
+          </div>
+        </div>
+        
+        <div class="map-container" style="margin-top: 1.5rem;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.76457430434!2d2.2769948739321284!3d48.85894658138326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sfr!2sfr!4v1654789158270!5m2!1sfr!2sfr"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Carte localisation">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // JavaScript for form handling
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Basic validation
+      if (!name || !email || !subject || !message) {
+        alert('Veuillez remplir tous les champs du formulaire.');
+        return;
+      }
+      
+      // In a real application, you would send this data to a PHP script
+      // Example of how to connect to PHP:
+      /*
+      fetch('process-form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Votre message a été envoyé avec succès!');
+          document.getElementById('contactForm').reset();
+        } else {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Une erreur est survenue. Veuillez réessayer.');
+      });
+      */
+      
+      // For this example, just show an alert
+      alert(`Merci ${name}! Votre message a été envoyé. Nous vous contacterons bientôt.`);
+      document.getElementById('contactForm').reset();
+    });
+  </script>
+</body>
+</html>
