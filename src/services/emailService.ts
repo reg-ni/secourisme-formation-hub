@@ -1,19 +1,10 @@
 
+import { RegistrationFormData } from '@/types/training';
+
 /**
  * Service pour l'envoi d'emails
  * Dans un environnement de production, ce service serait connecté à une API backend
  */
-
-interface EmailData {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  sessionTitle?: string;
-  sessionDate?: string;
-  sessionLocation?: string;
-  message?: string;
-}
 
 /**
  * Envoie un email de demande d'inscription
@@ -21,7 +12,7 @@ interface EmailData {
  * Dans le projet actuel, cette fonction est simulée.
  * En production, elle enverrait une requête à un serveur backend.
  */
-export const sendRegistrationEmail = async (data: EmailData): Promise<boolean> => {
+export const sendRegistrationEmail = async (data: RegistrationFormData): Promise<boolean> => {
   try {
     // Simulation d'un appel API
     console.log('Envoi d\'un email à n.regnier@semaprev.fr avec les données suivantes:', data);
