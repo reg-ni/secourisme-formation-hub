@@ -7,6 +7,7 @@ export interface TrainingSession {
   duration: string;
   spots: number;
   location: string;
+  slug?: string;
 }
 
 // Form data structure for registrations
@@ -20,4 +21,24 @@ export interface RegistrationFormData {
   sessionTitle?: string;
   sessionDate?: string;
   sessionLocation?: string;
+}
+
+// Détails pour les pages de formation
+export interface TrainingDetails {
+  title: string;
+  slug: string;
+  shortDescription: string;
+  longDescription: string;
+  objectives: string[];
+  targetAudience: string;
+  prerequisites: string;
+  duration: string;
+  price?: string;
+  certification?: string;
+  program: ProgramSection[];
+}
+
+export interface ProgramSection {
+  title: string;
+  items: string[];
 }

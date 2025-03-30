@@ -12,6 +12,14 @@ const HeroSection = () => {
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Découvrez les prochaines sessions de formation disponibles et inscrivez-vous directement en ligne.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="#sessions" className="inline-flex items-center bg-orange-500 text-white hover:bg-orange-600 px-6 py-3 rounded-md font-medium transition-colors">
+              Voir les sessions
+            </a>
+            <a href="/formation-sst" className="inline-flex items-center bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-md font-medium transition-colors">
+              Détails des formations
+            </a>
+          </div>
         </div>
       </div>
     </section>
