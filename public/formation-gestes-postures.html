@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation Gestes et Postures - Prévention des TMS - SEMA PREV</title>
+  <meta name="description" content="Formation Gestes et Postures par SEMA PREV. Apprenez les techniques de manutention manuelle et réduisez les risques de troubles musculosquelettiques (TMS).">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary {
+      background-color: #f97316;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 300ms;
+    }
+    .btn-primary:hover {
+      background-color: #ea580c;
+    }
+    .btn-secondary {
+      background-color: white;
+      color: #1f2937;
+      border: 1px solid #d1d5db;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 300ms;
+    }
+    .btn-secondary:hover {
+      background-color: #f3f4f6;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: #6b7280;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="index.html">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-orange-500">SEMA</span>
+                <span class="text-2xl font-bold text-gray-700">PREV</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:flex md:items-center md:space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
+          <a href="index.html#formations" class="text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium">Formations</a>
+          <a href="index.html#about" class="text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium">À propos</a>
+          <a href="ipsen.html" class="text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium">IPSEN</a>
+          <a href="index.html#contact" class="text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+          <a href="index.html#contact" class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-md text-sm font-medium transition-colors">Demander un devis</a>
+        </div>
+        <div class="flex md:hidden items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-orange-500 hover:bg-gray-100 focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+        <a href="index.html#formations" class="block text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">Formations</a>
+        <a href="index.html#about" class="block text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">À propos</a>
+        <a href="ipsen.html" class="block text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">IPSEN</a>
+        <a href="index.html#contact" class="block text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <a href="index.html#contact" class="block bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-md text-base font-medium transition-colors mt-2">Demander un devis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+            Gestes et Postures
+          </h1>
+          <p class="mt-4 text-xl text-gray-600">
+            Prévention des Troubles Musculosquelettiques et manutention manuelle
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#programme" class="btn-primary">
+              Voir le programme
+            </a>
+            <a href="index.html#contact" class="btn-secondary">
+              Demander un devis
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <img src="images/formation-gestes-postures.jpg" alt="Formation Gestes et Postures" class="rounded-lg shadow-xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content Area -->
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Formation Gestes et Postures</h2>
+          
+          <div class="prose max-w-none">
+            <div class="bg-blue-100 border-l-4 border-blue-500 p-4 mb-8">
+              <p class="text-blue-700">
+                <strong>Le saviez-vous ?</strong> Les troubles musculosquelettiques (TMS) représentent la première cause de maladie professionnelle en France. Une formation adaptée aux gestes et postures permet de réduire significativement ces risques.
+              </p>
+            </div>
+            
+            <p class="text-lg text-gray-600 mb-6">
+              La formation Gestes et Postures permet d'acquérir les techniques de base de manutention manuelle et les bonnes pratiques de positionnement pour prévenir les troubles musculosquelettiques (TMS) et les risques liés à l'activité physique dans le cadre professionnel.
+            </p>
+            
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4" id="objectifs">Objectifs de la formation</h3>
+            <p class="mb-4">La formation Gestes et Postures vise à :</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-600">
+              <li>Identifier et caractériser les risques liés à l'activité physique professionnelle</li>
+              <li>Comprendre le fonctionnement du corps humain et ses limites</li>
+              <li>Acquérir les techniques gestuelles adaptées pour diminuer les risques d'accidents et de TMS</li>
+              <li>Proposer des améliorations de son poste de travail et participer à leur mise en œuvre</li>
+              <li>Adopter une démarche de prévention des risques professionnels au quotidien</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4" id="public">Public concerné</h3>
+            <p class="text-gray-600 mb-6">
+              Cette formation s'adresse à tout salarié ayant une activité physique dans son travail quotidien (port de charges, travail sur écran, gestes répétitifs, postures contraignantes...). Aucun prérequis n'est nécessaire.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4" id="programme">Programme de la formation</h3>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">1. Introduction aux risques liés à l'activité physique</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>Les enjeux humains, économiques et réglementaires</li>
+                <li>Les statistiques des accidents du travail et maladies professionnelles</li>
+                <li>Le cadre réglementaire et légal</li>
+                <li>Les principes généraux de prévention</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">2. Notions d'anatomie et de physiologie</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>La colonne vertébrale : structure et fonctionnement</li>
+                <li>Les troubles musculosquelettiques (TMS) : définition et facteurs de risque</li>
+                <li>Les différentes pathologies professionnelles et leurs conséquences</li>
+                <li>Les limites du corps humain</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">3. Principes de sécurité physique et d'économie d'effort</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>Les principes de manutention manuelle de charges</li>
+                <li>Les techniques pour porter, tirer, pousser, déplacer des charges</li>
+                <li>Le placement du corps et les appuis</li>
+                <li>La coordination des gestes et la synchronisation des efforts</li>
+                <li>L'économie d'effort et la réduction de la fatigue</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">4. Analyse du poste de travail</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>Observation et analyse des situations de travail</li>
+                <li>Identification des situations à risque</li>
+                <li>Recherche d'améliorations des postes de travail</li>
+                <li>Les aménagements possibles et les aides techniques</li>
+                <li>Propositions d'améliorations organisationnelles et techniques</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">5. Mise en application pratique</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>Exercices pratiques adaptés à l'activité des participants</li>
+                <li>Analyse des postures de travail des participants</li>
+                <li>Application des principes de sécurité et d'économie d'effort</li>
+                <li>Mises en situation sur des cas concrets liés aux activités de l'entreprise</li>
+                <li>Correction des gestes et postures inadaptés</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg mb-8">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">6. Prévention au quotidien</h4>
+              <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                <li>Échauffements et étirements adaptés au poste de travail</li>
+                <li>Exercices de relaxation et de détente musculaire</li>
+                <li>Hygiène de vie et maintien de la condition physique</li>
+                <li>Établissement d'un plan d'action personnel</li>
+              </ul>
+            </div>
+            
+            <p class="text-gray-600 mb-8">
+              La formation est adaptée au secteur d'activité et aux spécificités des postes de travail des participants. Elle alterne entre apports théoriques et mises en pratique pour une meilleure appropriation des techniques.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Sidebar Area -->
+        <div class="lg:col-span-1">
+          <div class="bg-gray-50 rounded-xl shadow-sm p-6 sticky top-24">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Informations pratiques</h3>
+            
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Durée</h4>
+                  <p class="text-gray-600">7 heures (1 jour)</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Participants</h4>
+                  <p class="text-gray-600">4 à 10 participants</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Méthodes pédagogiques</h4>
+                  <p class="text-gray-600">Alternance de théorie et pratique</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Documents remis</h4>
+                  <p class="text-gray-600">Support de formation et attestation</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Lieu</h4>
+                  <p class="text-gray-600">Dans vos locaux ou en centre de formation</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 space-y-4">
+              <a href="index.html#contact" class="btn-primary w-full text-center block">
+                Demander un devis
+              </a>
+              <a href="ipsen.html" class="btn-secondary w-full text-center block">
+                Voir les sessions IPSEN
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Prévenez les TMS dans votre entreprise</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        Investir dans la formation Gestes et Postures, c'est préserver la santé de vos collaborateurs
+        et améliorer leur efficacité au quotidien.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="index.html#contact" class="btn-primary">
+          Nous contacter
+        </a>
+        <a href="formation-sst.html" class="btn-secondary">
+          Découvrir la formation SST
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-bold text-orange-500">SEMA</span>
+            <span class="text-2xl font-bold text-gray-300">PREV</span>
+          </div>
+          <p class="text-gray-400 text-sm">
+            SEMA PREV est votre partenaire privilégié pour les formations en secourisme professionnel depuis 2015.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="index.html#formations" class="text-gray-400 hover:text-white transition-colors">Formations</a></li>
+            <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Nos formations</h4>
+          <ul class="space-y-2">
+            <li><a href="formation-sst.html" class="text-gray-400 hover:text-white transition-colors">Formation SST</a></li>
+            <li><a href="formation-mac-sst.html" class="text-gray-400 hover:text-white transition-colors">MAC SST</a></li>
+            <li><a href="formation-gestes-postures.html" class="text-gray-400 hover:text-white transition-colors">Gestes et Postures</a></li>
+            <li><a href="ipsen.html" class="text-gray-400 hover:text-white transition-colors">Sessions IPSEN</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              123 rue du Secourisme, 75000 Paris
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <a href="tel:+33123456789">01 23 45 67 89</a>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <a href="mailto:contact@semaprev.fr">contact@semaprev.fr</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-10 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 SEMA PREV. Tous droits réservés.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="cgu.html" class="text-gray-400 hover:text-white transition-colors text-sm">CGU</a>
+          <a href="mentions-legales.html" class="text-gray-400 hover:text-white transition-colors text-sm">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

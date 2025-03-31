@@ -1,262 +1,170 @@
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
-import { toast } from 'sonner';
-
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Calendar } from '@/components/ui/calendar';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { cn } from '@/lib/utils';
-import { TrainingSession } from '@/types/training';
+import { Label } from '@/components/ui/label';
 import { sendRegistrationEmail } from '@/services/emailService';
-
-// Schéma de validation pour le formulaire
-const formSchema = z.object({
-  name: z.string().min(2, { message: 'Le nom est requis' }),
-  email: z.string().email({ message: 'Email invalide' }),
-  phone: z.string().min(10, { message: 'Numéro de téléphone invalide' }),
-  company: z.string().min(2, { message: 'Le nom de l\'entreprise est requis' }),
-  selectedDate: z.date({
-    required_error: 'Veuillez sélectionner une date de formation',
-  }),
-  message: z.string().optional(),
-});
+import { toast } from 'sonner';
+import { RegistrationFormData, TrainingSession } from '@/types/training';
 
 interface RegistrationFormProps {
-  trainingSessions: TrainingSession[];
   selectedSession: TrainingSession | null;
-  setSelectedSession: (session: TrainingSession | null) => void;
+  onClose: () => void;
 }
 
-const RegistrationForm = ({ trainingSessions, selectedSession, setSelectedSession }: RegistrationFormProps) => {
-  // Initialisation du formulaire React Hook Form avec zod
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
-    },
+const RegistrationForm = ({ selectedSession, onClose }: RegistrationFormProps) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    message: string;
+  }>({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
   });
 
-  // Gérer la soumission du formulaire
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    // Vérifier qu'une session est sélectionnée
-    if (!selectedSession) {
-      toast.error('Veuillez sélectionner une session de formation');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic form validation
+    if (!formData.name || !formData.email || !formData.phone || !formData.company) {
+      toast.error('Veuillez remplir tous les champs obligatoires');
       return;
     }
-    
-    // Préparation des données à envoyer
-    const formData = {
-      ...data,
-      sessionTitle: selectedSession.title,
-      sessionDate: format(data.selectedDate, 'dd/MM/yyyy'),
-      sessionLocation: selectedSession.location,
-    };
 
-    // Afficher un toast de chargement
-    toast.loading('Envoi de votre demande en cours...');
-    
-    // Envoyer les données avec notre service
-    const success = await sendRegistrationEmail(formData);
-    
-    if (success) {
-      // Notification de succès
-      toast.success('Inscription envoyée !', {
-        description: 'Nous avons bien reçu votre demande et vous contacterons prochainement.',
-      });
+    if (!selectedSession) {
+      toast.error('Aucune session de formation sélectionnée');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Prepare data for email
+      const registrationData: RegistrationFormData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        selectedDate: selectedSession.date,
+        message: formData.message,
+        sessionTitle: selectedSession.title,
+        sessionDate: new Date(selectedSession.date).toLocaleDateString('fr-FR', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }),
+        sessionLocation: selectedSession.location
+      };
+
+      await sendRegistrationEmail(registrationData);
       
-      // Réinitialiser le formulaire
-      form.reset();
-      setSelectedSession(null);
-    } else {
-      toast.error('Erreur lors de l\'envoi', {
-        description: 'Un problème est survenu. Veuillez réessayer ou nous contacter par téléphone.',
-      });
+      toast.success('Votre demande d'inscription a été envoyée avec succès');
+      onClose();
+    } catch (error) {
+      console.error('Error submitting registration:', error);
+      toast.error('Une erreur est survenue lors de l\'envoi de votre demande');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">
-          Formulaire d'inscription
-        </h2>
-        <p className="text-center text-gray-600 mb-8">
-          Complétez le formulaire ci-dessous pour vous inscrire à une session de formation
-        </p>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <Label htmlFor="name">Nom complet *</Label>
+        <Input
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Votre nom complet"
+          required
+        />
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="email">Email *</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="votre@email.com"
+            required
+          />
+        </div>
         
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {/* Nom complet */}
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nom complet</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Entrez votre nom complet" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              {/* Email et téléphone sur une ligne */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="votre@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Téléphone</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Votre numéro de téléphone" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              
-              {/* Entreprise */}
-              <FormField
-                control={form.control}
-                name="company"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Entreprise</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Nom de votre entreprise" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              {/* Date de session */}
-              <FormField
-                control={form.control}
-                name="selectedDate"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>Date de formation</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-full justify-start text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {field.value ? (
-                              format(field.value, "dd MMMM yyyy")
-                            ) : (
-                              <span>Choisissez une date</span>
-                            )}
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) => {
-                            // Désactiver les dates qui ne sont pas dans les sessions
-                            return !trainingSessions.some(
-                              session => 
-                                date.getDate() === session.date.getDate() &&
-                                date.getMonth() === session.date.getMonth() &&
-                                date.getFullYear() === session.date.getFullYear()
-                            );
-                          }}
-                          initialFocus
-                          className={cn("p-3 pointer-events-auto")}
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    {selectedSession && (
-                      <p className="text-sm text-orange-600 mt-1">
-                        Session sélectionnée: {selectedSession.title}
-                      </p>
-                    )}
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              {/* Message optionnel */}
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message (optionnel)</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="Information supplémentaire concernant votre inscription" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              {/* Bouton de soumission */}
-              <Button 
-                type="submit" 
-                className="w-full bg-orange-500 hover:bg-orange-600"
-                disabled={!selectedSession}
-              >
-                Envoyer ma demande d'inscription
-              </Button>
-            </form>
-          </Form>
+        <div>
+          <Label htmlFor="phone">Téléphone *</Label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Votre numéro de téléphone"
+            required
+          />
         </div>
       </div>
-    </section>
+      
+      <div>
+        <Label htmlFor="company">Entreprise *</Label>
+        <Input
+          id="company"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+          placeholder="Nom de votre entreprise"
+          required
+        />
+      </div>
+      
+      <div>
+        <Label htmlFor="session-info">Session sélectionnée</Label>
+        <Input
+          id="session-info"
+          value={selectedSession ? `${selectedSession.title} - ${new Date(selectedSession.date).toLocaleDateString('fr-FR', {day: 'numeric', month: 'long', year: 'numeric'})}` : ''}
+          readOnly
+          className="bg-gray-100"
+        />
+      </div>
+      
+      <div>
+        <Label htmlFor="message">Message (optionnel)</Label>
+        <Textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Information supplémentaire concernant votre inscription"
+          rows={4}
+        />
+      </div>
+      
+      <div className="flex justify-end space-x-4">
+        <Button variant="outline" type="button" onClick={onClose}>
+          Annuler
+        </Button>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Envoi en cours...' : 'Envoyer ma demande'}
+        </Button>
+      </div>
+    </form>
   );
 };
 
