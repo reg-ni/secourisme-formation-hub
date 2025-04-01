@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formation Défibrillateur (DAE) - SEMA PREV</title>
+  <meta name="description" content="Formation à l'utilisation du défibrillateur automatisé externe (DAE) pour intervenir efficacement en cas d'arrêt cardiaque." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Navigation Bar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <span class="text-2xl font-bold text-orange-500">SEMA</span>
+            <span class="text-2xl font-bold text-gray-700">PREV</span>
+          </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-8">
+            <a href="/" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              Accueil
+            </a>
+            <a href="/#formations" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              Formations
+            </a>
+            <div class="relative group">
+              <span class="text-gray-600 hover:text-orange-500 font-medium transition-colors cursor-pointer">
+                Nos formations
+              </span>
+              <div class="absolute left-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+                <div class="py-1" role="menu" aria-orientation="vertical">
+                  <a href="/formation-sst.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                    SST
+                  </a>
+                  <a href="/formation-mac-sst.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                    MAC SST
+                  </a>
+                  <a href="/formation-gestes-postures.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                    Gestes et Postures
+                  </a>
+                  <a href="/formation-defibrillateur.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-medium text-orange-500" role="menuitem">
+                    Défibrillateur (DAE)
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="/#about" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              À propos
+            </a>
+            <a href="/ipsen.html" class="text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              IPSEN
+            </a>
+            <a href="/#contact" class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-md font-medium transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button
+            type="button"
+            class="text-gray-600 hover:text-orange-500 focus:outline-none mobile-menu-button"
+          >
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          Accueil
+        </a>
+        <a href="/#formations" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          Formations
+        </a>
+        <div class="py-2 px-3">
+          <p class="text-gray-600 font-medium mb-2">Nos formations</p>
+          <div class="pl-3 space-y-1">
+            <a href="/formation-sst.html" class="block px-3 py-1 text-sm text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              SST
+            </a>
+            <a href="/formation-mac-sst.html" class="block px-3 py-1 text-sm text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              MAC SST
+            </a>
+            <a href="/formation-gestes-postures.html" class="block px-3 py-1 text-sm text-gray-600 hover:text-orange-500 font-medium transition-colors">
+              Gestes et Postures
+            </a>
+            <a href="/formation-defibrillateur.html" class="block px-3 py-1 text-sm text-gray-600 hover:text-orange-500 font-medium transition-colors text-orange-500">
+              Défibrillateur (DAE)
+            </a>
+          </div>
+        </div>
+        <a href="/#about" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          À propos
+        </a>
+        <a href="/ipsen.html" class="block px-3 py-2 text-gray-600 hover:text-orange-500 font-medium transition-colors">
+          IPSEN
+        </a>
+        <a href="/#contact" class="block mt-4 px-3 py-2 bg-orange-500 text-white hover:bg-orange-600 rounded-md font-medium transition-colors">
+          Contact
+        </a>
+      </div>
+      <div class="px-5 pt-4 pb-3 border-t border-gray-200">
+        <div class="space-y-1">
+          <a href="/mentions-legales.html" class="block px-3 py-1 text-xs text-gray-500 hover:text-gray-700 transition-colors">
+            Mentions légales
+          </a>
+          <a href="/cgu.html" class="block px-3 py-1 text-xs text-gray-500 hover:text-gray-700 transition-colors">
+            CGU
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:flex lg:items-center lg:justify-between">
+          <div class="lg:w-1/2">
+            <h1 class="text-4xl font-bold mb-4">Formation Défibrillateur (DAE)</h1>
+            <p class="text-xl mb-6">Apprenez à utiliser un défibrillateur automatisé externe pour sauver des vies en cas d'arrêt cardiaque.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#details" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center">
+                <i class="fas fa-info-circle mr-2"></i>
+                Détails de la formation
+              </a>
+              <a href="#contact" class="bg-orange-500 text-white hover:bg-orange-600 px-6 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center">
+                <i class="fas fa-envelope mr-2"></i>
+                Demander un devis
+              </a>
+            </div>
+          </div>
+          <div class="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Défibrillateur" class="rounded-lg shadow-xl max-h-80 object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section id="details" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow-md p-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">À propos de la formation</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="col-span-2">
+              <h3 class="text-2xl font-semibold text-blue-600 mb-4">Présentation</h3>
+              <p class="text-gray-700 mb-6">
+                La formation à l'utilisation du défibrillateur automatisé externe (DAE) est essentielle pour intervenir efficacement en cas d'arrêt cardiaque. Cette formation pratique vous apprend à utiliser cet appareil qui peut sauver des vies, en complément des gestes de premiers secours.
+              </p>
+
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Objectifs de la formation</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                    <span>Identifier les signes d'un arrêt cardiaque</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                    <span>Mettre en oeuvre une réanimation cardio-pulmonaire</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                    <span>Connaître le fonctionnement d'un défibrillateur automatisé externe</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                    <span>Utiliser un DAE en toute sécurité</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                    <span>S'intégrer dans la chaîne de secours</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Programme détaillé</h3>
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="font-semibold text-blue-600 mb-2">Module 1 : Introduction à la défibrillation</h4>
+                    <ul class="pl-5 space-y-1 list-disc text-gray-700">
+                      <li>Statistiques sur les arrêts cardiaques en France</li>
+                      <li>Importance de l'intervention rapide</li>
+                      <li>Cadre juridique et responsabilités</li>
+                      <li>Types de défibrillateurs (automatiques et semi-automatiques)</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-600 mb-2">Module 2 : Reconnaître l'arrêt cardiaque</h4>
+                    <ul class="pl-5 space-y-1 list-disc text-gray-700">
+                      <li>Causes de l'arrêt cardiaque</li>
+                      <li>Identifier une victime en arrêt cardiaque</li>
+                      <li>La chaîne de survie</li>
+                      <li>Alerte des secours</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-600 mb-2">Module 3 : Le massage cardiaque</h4>
+                    <ul class="pl-5 space-y-1 list-disc text-gray-700">
+                      <li>Position de la victime et du sauveteur</li>
+                      <li>Technique du massage cardiaque chez l'adulte et l'enfant</li>
+                      <li>Rythme et profondeur des compressions</li>
+                      <li>Pratique sur mannequin</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-600 mb-2">Module 4 : Utilisation du DAE</h4>
+                    <ul class="pl-5 space-y-1 list-disc text-gray-700">
+                      <li>Présentation du matériel</li>
+                      <li>Mise en marche de l'appareil</li>
+                      <li>Positionnement des électrodes</li>
+                      <li>Sécurité lors de l'utilisation</li>
+                      <li>Spécificités selon l'âge de la victime</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold text-blue-600 mb-2">Module 5 : Mise en situation pratique</h4>
+                    <ul class="pl-5 space-y-1 list-disc text-gray-700">
+                      <li>Simulations de cas réels</li>
+                      <li>Coordination RCP et défibrillation</li>
+                      <li>Relais entre sauveteurs</li>
+                      <li>Transmission aux secours médicalisés</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Informations pratiques</h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start">
+                    <i class="fas fa-clock text-blue-600 w-6 mt-1"></i>
+                    <div>
+                      <p class="font-medium">Durée</p>
+                      <p class="text-gray-600">3 heures</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-users text-blue-600 w-6 mt-1"></i>
+                    <div>
+                      <p class="font-medium">Public</p>
+                      <p class="text-gray-600">Tout public, aucun prérequis nécessaire</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-map-marker-alt text-blue-600 w-6 mt-1"></i>
+                    <div>
+                      <p class="font-medium">Lieu</p>
+                      <p class="text-gray-600">Dans vos locaux ou nos centres de formation</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-users-cog text-blue-600 w-6 mt-1"></i>
+                    <div>
+                      <p class="font-medium">Participants</p>
+                      <p class="text-gray-600">Groupe de 4 à 10 personnes</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-file-alt text-blue-600 w-6 mt-1"></i>
+                    <div>
+                      <p class="font-medium">Validation</p>
+                      <p class="text-gray-600">Attestation de formation délivrée aux participants</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+                <h3 class="text-xl font-semibold text-orange-600 mb-4">Pourquoi se former ?</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-heart-pulse text-orange-600 mr-2 mt-1"></i>
+                    <span>Chaque minute qui passe réduit de 10% les chances de survie</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-heartbeat text-orange-600 mr-2 mt-1"></i>
+                    <span>Un DAE augmente de 40% les chances de survie</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-building text-orange-600 mr-2 mt-1"></i>
+                    <span>De nombreux ERP sont désormais équipés de DAE</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-shield-heart text-orange-600 mr-2 mt-1"></i>
+                    <span>Une obligation morale de porter secours</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Intéressé par cette formation ?</h2>
+          <p class="text-xl text-gray-600">Contactez-nous pour obtenir un devis personnalisé ou programmer une session</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <form class="bg-white rounded-xl shadow-md p-8">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Votre nom" required>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="votre@email.com" required>
+                </div>
+                <div>
+                  <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Votre numéro">
+                </div>
+              </div>
+              <div class="mb-6">
+                <label for="company" class="block text-gray-700 font-medium mb-2">Entreprise / Organisation</label>
+                <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nom de votre entreprise">
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Précisez votre demande (nombre de participants, lieu, dates souhaitées...)" required></textarea>
+              </div>
+              <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium">Envoyer ma demande</button>
+            </form>
+          </div>
+          <div>
+            <div class="bg-white rounded-xl shadow-md p-8 h-full">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">Nos coordonnées</h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <i class="fas fa-map-marker-alt text-blue-600 w-8 text-xl mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Adresse</h4>
+                    <p class="text-gray-600">123 Avenue de la Prévention<br>75000 Paris, France</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-phone text-blue-600 w-8 text-xl mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Téléphone</h4>
+                    <p class="text-gray-600">+33 (0)1 23 45 67 89</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-envelope text-blue-600 w-8 text-xl mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Email</h4>
+                    <p class="text-gray-600">contact@semaprev.fr</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clock text-blue-600 w-8 text-xl mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Horaires d'ouverture</h4>
+                    <p class="text-gray-600">Du lundi au vendredi<br>9h00 - 17h00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-10 pt-6 border-t border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-4">Suivez-nous</h4>
+                <div class="flex space-x-4">
+                  <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors">
+                    <i class="fab fa-facebook text-2xl"></i>
+                  </a>
+                  <a href="#" class="text-blue-400 hover:text-blue-600 transition-colors">
+                    <i class="fab fa-twitter text-2xl"></i>
+                  </a>
+                  <a href="#" class="text-pink-600 hover:text-pink-800 transition-colors">
+                    <i class="fab fa-instagram text-2xl"></i>
+                  </a>
+                  <a href="#" class="text-blue-700 hover:text-blue-900 transition-colors">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <a href="/" class="flex items-center mb-6">
+            <span class="text-2xl font-bold text-orange-400">SEMA</span>
+            <span class="text-2xl font-bold text-white">PREV</span>
+          </a>
+          <p class="text-gray-300 mb-6">
+            Formations professionnelles en prévention des risques et secourisme adaptées à vos besoins.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Navigation</h3>
+          <ul class="space-y-4">
+            <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="/#formations" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+            <li><a href="/#about" class="text-gray-300 hover:text-white transition-colors">À propos</a></li>
+            <li><a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="/ipsen.html" class="text-gray-300 hover:text-white transition-colors">IPSEN</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Nos formations</h3>
+          <ul class="space-y-4">
+            <li><a href="/formation-sst.html" class="text-gray-300 hover:text-white transition-colors">Formation SST</a></li>
+            <li><a href="/formation-mac-sst.html" class="text-gray-300 hover:text-white transition-colors">MAC SST</a></li>
+            <li><a href="/formation-gestes-postures.html" class="text-gray-300 hover:text-white transition-colors">Gestes et Postures</a></li>
+            <li><a href="/formation-defibrillateur.html" class="text-gray-300 hover:text-white transition-colors">Utilisation défibrillateur (DAE)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Informations légales</h3>
+          <ul class="space-y-4">
+            <li><a href="/mentions-legales.html" class="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
+            <li><a href="/cgu.html" class="text-gray-300 hover:text-white transition-colors">Conditions générales d'utilisation</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p>© 2023 SEMAPREV. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+      document.querySelector('.mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
