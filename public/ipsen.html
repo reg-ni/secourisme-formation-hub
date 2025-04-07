@@ -24,6 +24,12 @@
       border-color: #f97316;
       box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
     }
+    .modal {
+      transition: opacity 0.3s ease;
+    }
+    .modal-content {
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50">
@@ -125,115 +131,124 @@
         </div>
       </div>
     </section>
-    
-    <!-- Formulaire d'inscription -->
-    <section class="py-12 bg-gray-50">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">
-          Formulaire d'inscription
-        </h2>
-        <p class="text-center text-gray-600 mb-8">
-          Complétez le formulaire ci-dessous pour vous inscrire à une session de formation
-        </p>
+  </main>
+  
+  <!-- Modal d'inscription -->
+  <div id="registrationModal" class="modal fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="modal-content bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 transform scale-95 opacity-0">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-900">Inscription à la formation</h3>
+          <button id="closeModal" class="text-gray-500 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
         
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <form id="registration-form" class="space-y-6">
-            <!-- Nom complet -->
+        <form id="registration-form" class="space-y-6">
+          <!-- Nom complet -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+              placeholder="Entrez votre nom complet"
+            >
+          </div>
+          
+          <!-- Email et téléphone sur une ligne -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
               <input 
-                type="text" 
-                id="name" 
-                name="name" 
+                type="email" 
+                id="email" 
+                name="email" 
                 required 
                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Entrez votre nom complet"
+                placeholder="votre@email.com"
               >
             </div>
             
-            <!-- Email et téléphone sur une ligne -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  required 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                  placeholder="votre@email.com"
-                >
-              </div>
-              
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  name="phone" 
-                  required 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                  placeholder="Votre numéro de téléphone"
-                >
-              </div>
-            </div>
-            
-            <!-- Entreprise -->
             <div>
-              <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Entreprise</label>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone *</label>
               <input 
-                type="text" 
-                id="company" 
-                name="company" 
+                type="tel" 
+                id="phone" 
+                name="phone" 
                 required 
                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Nom de votre entreprise"
+                placeholder="Votre numéro de téléphone"
               >
             </div>
-            
-            <!-- Session sélectionnée -->
-            <div>
-              <label for="selected-session" class="block text-sm font-medium text-gray-700 mb-1">Session sélectionnée</label>
-              <input 
-                type="text" 
-                id="selected-session" 
-                name="selected-session" 
-                readonly 
-                required 
-                class="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
-                placeholder="Veuillez sélectionner une session ci-dessus"
-              >
-              <input type="hidden" id="session-date" name="session-date">
-              <input type="hidden" id="session-title" name="session-title">
-              <input type="hidden" id="session-location" name="session-location">
-            </div>
-            
-            <!-- Message optionnel -->
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (optionnel)</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="4" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Information supplémentaire concernant votre inscription"
-              ></textarea>
-            </div>
-            
-            <!-- Bouton de soumission -->
+          </div>
+          
+          <!-- Entreprise -->
+          <div>
+            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Entreprise *</label>
+            <input 
+              type="text" 
+              id="company" 
+              name="company" 
+              required 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+              placeholder="Nom de votre entreprise"
+            >
+          </div>
+          
+          <!-- Session sélectionnée -->
+          <div>
+            <label for="selected-session" class="block text-sm font-medium text-gray-700 mb-1">Session sélectionnée</label>
+            <input 
+              type="text" 
+              id="selected-session" 
+              name="selected-session" 
+              readonly 
+              required 
+              class="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+            >
+            <input type="hidden" id="session-date" name="session-date">
+            <input type="hidden" id="session-title" name="session-title">
+            <input type="hidden" id="session-location" name="session-location">
+          </div>
+          
+          <!-- Message optionnel -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (optionnel)</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+              placeholder="Information supplémentaire concernant votre inscription"
+            ></textarea>
+          </div>
+          
+          <!-- Boutons d'action -->
+          <div class="flex justify-end space-x-4">
+            <button 
+              type="button" 
+              id="cancelButton"
+              class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            >
+              Annuler
+            </button>
             <button 
               type="submit" 
-              class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
               id="submit-button"
-              disabled
             >
-              Envoyer ma demande d'inscription
+              Envoyer ma demande
             </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
   
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-12">
@@ -393,7 +408,7 @@
 
     // Variables globales
     let selectedSessionId = null;
-    const submitButton = document.getElementById('submit-button');
+    const modal = document.getElementById('registrationModal');
     const selectedSessionInput = document.getElementById('selected-session');
     const sessionDateInput = document.getElementById('session-date');
     const sessionTitleInput = document.getElementById('session-title');
@@ -438,43 +453,52 @@
             </div>
             
             <button class="select-session-btn mt-4 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600">
-              Sélectionner cette session
+              S'inscrire à cette session
             </button>
           </div>
         `;
         
         container.appendChild(card);
-        
-        // Ajouter l'écouteur d'événement pour le bouton de sélection
-        const selectButton = card.querySelector('.select-session-btn');
-        selectButton.addEventListener('click', () => {
-          selectSession(session);
+      });
+      
+      // Ajouter l'écouteur d'événement pour les boutons de sélection
+      document.querySelectorAll('.select-session-btn').forEach((button, index) => {
+        button.addEventListener('click', () => {
+          openRegistrationModal(trainingSessions[index]);
         });
       });
     }
 
-    // Sélection d'une session
-    function selectSession(session) {
-      // Réinitialiser toutes les cartes
-      document.querySelectorAll('[data-session-id]').forEach(card => {
-        card.classList.remove('selected-card');
-        card.querySelector('.session-check').classList.add('hidden');
-      });
-      
-      // Marquer la session sélectionnée
-      const selectedCard = document.querySelector(`[data-session-id="${session.id}"]`);
-      selectedCard.classList.add('selected-card');
-      selectedCard.querySelector('.session-check').classList.remove('hidden');
-      
-      // Mettre à jour les champs de formulaire
+    // Fonction pour ouvrir la modale d'inscription
+    function openRegistrationModal(session) {
       selectedSessionId = session.id;
+      
+      // Remplir les informations de session dans le formulaire
       selectedSessionInput.value = `${session.title} - ${formatDate(session.date)}`;
       sessionDateInput.value = formatDate(session.date);
       sessionTitleInput.value = session.title;
       sessionLocationInput.value = session.location;
       
-      // Activer le bouton de soumission
-      submitButton.disabled = false;
+      // Afficher la modale
+      modal.classList.remove('hidden');
+      
+      // Animation d'entrée
+      setTimeout(() => {
+        modal.querySelector('.modal-content').classList.add('opacity-100', 'scale-100');
+        modal.querySelector('.modal-content').classList.remove('opacity-0', 'scale-95');
+      }, 10);
+    }
+
+    // Fonction pour fermer la modale
+    function closeModal() {
+      // Animation de sortie
+      modal.querySelector('.modal-content').classList.remove('opacity-100', 'scale-100');
+      modal.querySelector('.modal-content').classList.add('opacity-0', 'scale-95');
+      
+      // Cacher la modale après l'animation
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
     }
 
     // Initialisation lors du chargement de la page
@@ -491,6 +515,17 @@
           mobileMenu.classList.remove('hidden');
         } else {
           mobileMenu.classList.add('hidden');
+        }
+      });
+      
+      // Gestion de la fermeture de la modale
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      document.getElementById('cancelButton').addEventListener('click', closeModal);
+      
+      // Cliquer en dehors de la modale pour la fermer
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
         }
       });
       
@@ -518,23 +553,14 @@
         };
         
         // Dans un vrai cas d'utilisation, vous enverriez ces données via AJAX à un serveur
-        // Pour cet exemple, nous allons simplement simuler l'envoi d'un email
         console.log('Données à envoyer par email à n.regnier@semaprev.fr:', formData);
         
         // Montrer un message de succès
         alert(`Merci ${formData.name} ! Votre demande d'inscription à la session "${formData.sessionTitle}" a été envoyée avec succès. Nous vous contacterons prochainement pour confirmer votre participation.`);
         
-        // Réinitialiser le formulaire
+        // Fermer la modale et réinitialiser le formulaire
+        closeModal();
         form.reset();
-        selectedSessionId = null;
-        selectedSessionInput.value = '';
-        submitButton.disabled = true;
-        
-        // Réinitialiser l'affichage des sessions
-        document.querySelectorAll('[data-session-id]').forEach(card => {
-          card.classList.remove('selected-card');
-          card.querySelector('.session-check').classList.add('hidden');
-        });
       });
     });
   </script>
