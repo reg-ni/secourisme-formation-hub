@@ -70,7 +70,7 @@ const RegistrationForm = ({ selectedSession, onClose }: RegistrationFormProps) =
 
       await sendRegistrationEmail(registrationData);
       
-      toast.success('Votre demande d'inscription a été envoyée avec succès');
+      toast.success('Votre demande d\'inscription a été envoyée avec succès');
       onClose();
     } catch (error) {
       console.error('Error submitting registration:', error);

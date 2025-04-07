@@ -7,16 +7,15 @@ import { RegistrationFormData } from '@/types/training';
  */
 
 /**
- * Envoie un email de demande d'inscription
+ * Envoie un email de demande d'inscription directement à n.regnier@semaprev.fr
  * 
  * Dans le projet actuel, cette fonction est simulée.
  * En production, elle enverrait une requête à un serveur backend.
  */
 export const sendRegistrationEmail = async (data: RegistrationFormData): Promise<boolean> => {
   try {
-    // Simulation d'un appel API
-    console.log('Envoi d\'un email à n.regnier@semaprev.fr avec les données suivantes:', data);
-
+    console.log('Envoi direct d\'un email à n.regnier@semaprev.fr avec les données suivantes:', data);
+    
     // Dans un environnement réel, vous utiliseriez quelque chose comme:
     // const response = await fetch('/api/send-email', {
     //   method: 'POST',
