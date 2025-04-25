@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEMA PREV - Formations IPSEN</title>
-  <meta name="description" content="SEMA PREV - Formations en prévention des risques professionnels pour IPSEN.">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Styles personnalisés */
-    .btn-primary {
-      background-color: #f97316;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.375rem;
-      font-weight: 500;
-      transition: all 300ms;
-    }
-    .btn-primary:hover {
-      background-color: #ea580c;
-    }
-    .selected-card {
-      border-color: #f97316;
-      box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
-    }
-    .modal {
-      transition: opacity 0.3s ease;
-    }
-    .modal-content {
-      transition: transform 0.3s ease;
-    }
-  </style>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W7KDXLP8');</script>
+      <!-- End Google Tag Manager -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>formation sécurité, formation secourisme et formation incendie - SEMAPREV - Lyon - Rhône</title>
+      <link rel="icon" href="images/logogras.webp">
+      <link rel="stylesheet" href="styles.css">
+  
+      <meta name="description" content="SEMA PREV propose de la formation sécurité, formation secourisme et formation incendie, sécurité au travail, et prévention des risques professionnels adaptées à vos besoins à Lyon et dans le Rhône. Nos formations: Sauveteur Secouriste du Travail (SST), Maintien Actualisation des Compétences (MAC SST), gestes et postures, et défibrillateur.">
+      <meta name="keywords" content="formation secourisme Lyon, SST, sauveteur secouriste du travail, prévention des risques professionnels, gestes et postures, défibrillateur, MAC SST, sécurité au travail, formation premiers secours Rhône, SEMA PREV contact, formation risques professionnels Lyon">
+  
+    <!-- Add Tailwind CDN for easy styling -->
+  
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
+
 <body class="min-h-screen flex flex-col bg-gray-50">
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 bg-white shadow-md">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a href="index.html" class="flex items-center">
-            <span class="text-2xl font-bold text-orange-500">SEMA</span>
-            <span class="text-2xl font-bold text-gray-700">PREV</span>
-          </a>
-        </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="logo px-32">
+        <img src="images/logogras.webp" alt="SEMA PREV Logo">
+    </div>
+    <ul class="nav-links text-lg px-40">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#formations">Formations</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+       
+    </ul>
+  </nav>
+  <header>
         
         <!-- Desktop Menu -->
         <div class="hidden md:block">
@@ -77,8 +74,7 @@
             </svg>
           </button>
         </div>
-      </div>
-    </nav>
+
     
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
@@ -109,28 +105,54 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Formations IPSEN
+            Ateliers IPSEN <br>
+            (Initiation Premiers Secours Enfants Nourrissons)
           </h1>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Découvrez les prochaines sessions de formation disponibles et inscrivez-vous directement en ligne.
-          </p>
         </div>
       </div>
     </section>
     
-    <!-- Filtres/mois et Sessions -->
+    <!-- Sessions de formation -->
     <section class="py-12 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
           Calendrier des prochaines sessions
         </h2>
-        <!-- Filtre par mois -->
-        <div id="month-filter" class="mb-8 flex flex-wrap justify-center gap-2"></div>
-        <!-- Sessions groupées par date -->
-        <div id="grouped-sessions-container"></div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="sessions-container">
+          <!-- Les sessions seront générées dynamiquement par JavaScript -->
+        </div>
       </div>
     </section>
-</main>
+  </main>
+  
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto my-6">
+    <h3 class="text-2xl font-bold text-gray-800 mb-4">Les Gestes de Premiers Secours Enfants et Nourrissons - Lyon</h3>
+    <article class="text-gray-700">
+        <p class="mb-4">
+            Cet atelier, est conçu pour vous sensibiliser à la prévention des accidents
+            domestiques et des incidents de la vie quotidienne. Vous y apprendrez les gestes de premiers secours cruciaux pour les tout-petits. 
+            Vous découvrirez comment anticiper les risques, appeler les secours en cas d’urgence, et réagir de manière efficace en présence d’un enfant ou d’un nourrisson en détresse.
+        </p>
+        <div class="mb-4">
+            <span class="font-semibold">Contenu :</span>
+            <ul class="list-disc pl-5 mt-2">
+                <li>Prévention des accidents domestiques</li>
+                <li>Prévention des incidents de la vie quotidienne</li>
+                <li>Prévention du syndrome du bébé secoué</li>
+                <li>Secourir un enfant qui s'étouffe</li>
+                <li>Secourir un nourrisson qui s’étouffe</li>
+                <li>Gestion d’une victime saignant abondamment (nourrisson et enfant)</li>
+                <li>Réagir en cas de perte de connaissance (nourrisson et enfant)</li>
+                <li>Victime en arrêt respiratoire (nourrisson et enfant)</li>
+            </ul>
+        </div>
+        <p class="mb-4">
+            Cette initiation est ouverte à tous sans prérequis. Elle s’adresse aux futurs parents, aux parents, aux grands-parents, aux assistantes maternelles, et même aux enfants à partir de 10 ans.
+        </p>
+        
+    </article>
+</div>
 
   
   <!-- Modal d'inscription -->
@@ -146,74 +168,83 @@
           </button>
         </div>
         
-        <form id="registration-form" class="space-y-6">
-          <!-- Nom complet -->
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              required 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-              placeholder="Entrez votre nom complet"
-            >
+        <form  id="registration-form" action="mail.php" method="POST" class="space-y-6" >
+
+          <!-- Nom / Prénom -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full px-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                placeholder="Entrez votre nom"
+              >
+            </div>
+            
+            <div>
+              <label for="firstname" class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
+              <input 
+                type="text" 
+                id="firstname" 
+                name="firstname" 
+                required 
+                class="w-full px-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                placeholder="Entrez votre Prénom"
+              >
+            </div>
           </div>
           
           <!-- Email et téléphone sur une ligne -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
               <input 
                 type="email" 
                 id="email" 
                 name="email" 
                 required 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                class="w-full px-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                 placeholder="votre@email.com"
               >
             </div>
             
             <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone *</label>
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                required 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Votre numéro de téléphone"
-              >
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+              <input type="tel" id="phone" name="phone" required class="w-full px-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"placeholder="Votre numéro de téléphone">
             </div>
           </div>
-          
-          <!-- Entreprise -->
-          <div>
-            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Entreprise *</label>
-            <input 
-              type="text" 
-              id="company" 
-              name="company" 
-              required 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-              placeholder="Nom de votre entreprise"
-            >
+
+          <!-- nb personnes et tarif par personne sur une ligne -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="mb-4">
+              <label for="participants" class="block text-sm font-medium text-gray-700 mb-1" >Nombre de personnes à inscrire</label>
+              <input type="number" id="sessionParticipants" name="sessionParticipants" min="1" value="1" required
+              class="w-full px-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+            </div>
+            
+            
           </div>
-          
+
           <!-- Session sélectionnée -->
           <div>
-            <label for="selected-session" class="block text-sm font-medium text-gray-700 mb-1">Session sélectionnée</label>
+            <label for="selected-session" class="block text-sm font-medium text-gray-700 mb-1">Session sélectionnée:</label>
             <input 
               type="text" 
               id="selected-session" 
               name="selected-session" 
               readonly 
               required 
-              class="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+              class="w-full px-1 py-1 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
             >
-            <input type="hidden" id="session-date" name="session-date">
-            <input type="hidden" id="session-title" name="session-title">
-            <input type="hidden" id="session-location" name="session-location">
+
+            <!-- ✅ Champs cachés uniques -->
+            <input type="hidden" id="session-date" name="sessionDate">
+            <input type="hidden" id="session-title" name="sessionTitle">
+            <input type="hidden" id="session-location" name="sessionLocation">
+            <input type="hidden" id="sessionHoraires" name="sessionHoraires">
           </div>
           
           <!-- Message optionnel -->
@@ -233,13 +264,13 @@
             <button 
               type="button" 
               id="cancelButton"
-              class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Annuler
             </button>
             <button 
               type="submit" 
-              class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
               id="submit-button"
             >
               Envoyer ma demande
@@ -279,7 +310,7 @@
             <a href="#" class="text-gray-400 hover:text-white">
               <span class="sr-only">LinkedIn</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
               </svg>
             </a>
           </div>
@@ -325,17 +356,12 @@
             Contact
           </h3>
           <ul class="space-y-2 text-gray-400">
-            <li class="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-              </svg>
-              123 rue du Secourisme, 75000 Paris
-            </li>
+            
             <li class="flex items-start">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span>01 23 45 67 89</span>
+              <span>06 23 61 68 95</span>
             </li>
             <li class="flex items-start">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
@@ -358,176 +384,136 @@
   <script>
     // Données des sessions de formation
     const trainingSessions = [
+      
       {
         id: 1,
-        title: 'Formation SST - Initiale',
-        date: new Date(2024, 8, 15), // 15 septembre 2024
-        duration: '2 jours',
-        spots: 12,
-        location: 'Paris - Centre IPSEN',
-		horaires: '9h-17h',
-		tarif: '250€'
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 4, 4), 
+        duration: '2 heures',
+        horaires: '9h-11h',
+        spots: 'COMPLET',
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
       },
       {
         id: 2,
-        title: 'Formation SST - Recyclage',
-        date: new Date(2024, 8, 22), // 22 septembre 2024
-        duration: '1 jour',
-        spots: 10,
-        location: 'Paris - Centre IPSEN',
-		horaires: '9h-17h',
-		tarif: '150€'
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 4, 4), 
+        duration: '2 heures',
+        horaires: '11h30-13h30',
+        spots: 'COMPLET',
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
       },
       {
         id: 3,
-        title: 'Formation Gestes et Postures',
-        date: new Date(2024, 9, 5), // 5 octobre 2024
-        duration: '1 jour',
-        spots: 15,
-        location: 'Lyon - Centre IPSEN',
-		horaires: '9h-17h',
-		tarif: '180€'
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 4, 4), 
+        duration: '2 heures',
+        horaires: '14h-16h',
+        spots: 2,
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
       },
       {
         id: 4,
-        title: 'Formation Prévention Incendie',
-        date: new Date(2024, 9, 12), // 12 octobre 2024
-        duration: '1 jour',
-        spots: 0,
-        location: 'Paris - Centre IPSEN',
-		horaires: '9h-17h',
-		tarif: '190€'
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 4, 31), 
+        duration: '2 heures',
+        horaires: '9h-11h',
+        spots: 3,
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
       },
       {
-        id: 5,
-        title: 'Formation PSC1',
-        date: new Date(2024, 10, 8), // 8 novembre 2024
-        duration: '1 jour',
-        spots: 'COMPLET',
-        location: 'Paris - Centre IPSEN',
-		horaires: '9h-17h',
-		tarif: '160€'
-      }
+        id:5,
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 5, 7), 
+        duration: '2 heures',
+        horaires: '9h-11h',
+        spots: 6,
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
+      },
+      {
+        id:6,
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 5, 21), 
+        duration: '2 heures',
+        horaires: '9h-11h',
+        spots: 3,
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
+      },
+      {
+        id:7,
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 5, 21), 
+        duration: '2 heures',
+        horaires: '11h30-13h30',
+        spots: 6,
+        location: 'Ecully 69 - Clinique du Val D\'Ouest',
+        tarif: '29€ par personne'
+      },
+      {
+        id:8,
+        title: 'Atelier IPSEN',
+        date: new Date(2025, 5, 22), 
+        duration: '4 heures',
+        horaires: '9h-13h',
+        spots: 12,
+        location: 'Villeurbanne - La Cause Des Parents',
+        tarif: '39€ par personne'
+      },
+     
     ];
 
-  // --- Filtres & groupement par date ----
-  function getMonthLabel(monthIndex) {
-    const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    return months[monthIndex] || '';
-  }
-
-  // Trie par date croissante (important si base de dates diverses)
-  trainingSessions.sort((a, b) => a.date - b.date);
-
-  // Groupement des sessions par date key "YYYY-MM-DD"
-  function groupSessionsByDate(sessions) {
-    const groups = {};
-    sessions.forEach(sess => {
-      const key = `${sess.date.getFullYear()}-${sess.date.getMonth()+1}-${sess.date.getDate()}`;
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(sess);
-    });
-    return groups;
-  }
-
-  // Génère les mois disponibles pour filtres (en-tête) à partir des sessions à venir
-  function getMonthsOptions(sessions) {
-    const monthsSet = new Set();
-    sessions.forEach(sess => {
-      monthsSet.add(`${sess.date.getFullYear()}-${sess.date.getMonth()}`);
-    });
-    return Array.from(monthsSet).sort();
-  }
-
-  // Filtre sessions affichées par mois (MAJ DOM)
-  function renderSessionsByMonth(selectedMonth = null) {
-    const container = document.getElementById("grouped-sessions-container");
-    container.innerHTML = "";
-
-    // Filtrage sessions selon mois choisi
-    let filtered = trainingSessions;
-    if (selectedMonth) {
-      filtered = trainingSessions.filter(sess => {
-        const m = `${sess.date.getFullYear()}-${sess.date.getMonth()}`;
-        return m === selectedMonth;
-      });
+    // Formatage de date
+    function formatDate(date) {
+      const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      return date.toLocaleDateString('fr-FR', options);
     }
 
-    // Groupées par jour
-    const grouped = groupSessionsByDate(filtered);
-    const groupKeys = Object.keys(grouped).sort((a, b) =>
-      new Date(a) - new Date(b)
-    );
+    // nouveau
+    function groupSessionsByDate(sessions) {
+    return sessions.reduce((groups, session) => {
+      const dateKey = formatDate(session.date);
+      if (!groups[dateKey]) groups[dateKey] = [];
+      groups[dateKey].push(session);
+      return groups;
+      }, {});
+    }
 
-    // Pour chaque jour, on affiche un header de date + ses cartes
-    groupKeys.forEach(dateKey => {
-      const dateSessions = grouped[dateKey];
-      const dtObj = dateSessions[0].date;
-      const dateLabel = dtObj.toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+    // Variables globales
+    let selectedSessionId = null;
+    const modal = document.getElementById('registrationModal');
+    const selectedSessionInput = document.getElementById('selected-session');
+    const sessionDateInput = document.getElementById('session-date');
+    const sessionTitleInput = document.getElementById('session-title');
+    const sessionHorairesInput = document.getElementById('sessionHoraires');
+    const sessionLocationInput = document.getElementById('session-location');
+    const sessionParticipantsInput = document.getElementById('sessionParticipants');
+    const sessionTarifInput = document.getElementById('sessionTarif');
+  
+    const submitButton = document.getElementById("submit-button");
+      
 
-      // Wrapper groupe jour
-      const groupDiv = document.createElement('div');
-      groupDiv.className = 'mb-10';
-
-      // Header de date (séparateur)
-      const dateHeader = document.createElement('div');
-      dateHeader.className = 'flex items-center gap-4 mb-4';
-      dateHeader.innerHTML = `
-        <span class="inline-block rounded-full bg-orange-100 text-orange-700 px-3 py-1 font-semibold shadow text-lg">
-          ${dateLabel.charAt(0).toUpperCase() + dateLabel.slice(1)}
-        </span>
-        <span class="h-px flex-1 bg-orange-200"></span>
-      `;
-      groupDiv.appendChild(dateHeader);
-
-      // Grille responsive (ou accordéon mobile)
-      const cardsGrid = document.createElement('div');
-      cardsGrid.className =
-        'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6';
-
-      dateSessions.forEach(session => {
-        // Mobile: chaque carte dans un details/summary pour effet accordéon si < md
-        const isFull = session.spots === 'COMPLET' || Number(session.spots) === 0;
-        const card = document.createElement('div');
-        card.className =
-          'bg-white border rounded-xl overflow-hidden shadow-md flex flex-col animate-fade-in transition-all duration-300' +
-          (isFull ? ' opacity-80 grayscale pointer-events-none' : ' hover:scale-105 hover:shadow-lg');
-
-        // Corps de la carte
-        card.innerHTML = `
-        <div class="p-6 flex flex-col gap-3 h-full">
-          <div class="flex items-center justify-between">
-            <h3 class="font-semibold text-gray-900">${session.title}</h3>
-            ${isFull ? `<span class="inline-block bg-red-100 text-red-500 px-2 py-1 text-xs font-bold rounded">COMPLET</span>` : ''}
-          </div>
-          <div class="text-sm text-gray-600 flex flex-col gap-1">
-            <div><span class="font-medium mr-2">Horaires:</span> ${session.horaires}</div>
-            <div><span class="font-medium mr-2">Durée:</span> ${session.duration}</div>
-            <div><span class="font-medium mr-2">Lieu:</span> ${session.location}</div>
-            <div><span class="font-medium mr-2">Tarif:</span> ${session.tarif}</div>
-            <div><span class="font-medium mr-2">Places:</span> ${
-              isFull
-                ? '<span class="text-red-500 font-bold">COMPLET</span>'
-                : session.spots
-            }
-            </div>
-          </div>
-          <button class="select-session-btn mt-3 py-2 px-4 text-white bg-orange-500 hover:bg-orange-600 rounded w-full font-semibold shadow transition" 
-            ${isFull ? 'disabled' : ''} style="transition: background 0.2s;">
-            ${isFull ? 'Indisponible' : 'Sélectionner cette session'}
-          </button>
-        </div>
-        `;
-
-        // Click cart bouton
-        if (!isFull) {
-          card.querySelector('.select-session-btn').addEventListener('click', () => {
-            openRegistrationModal(session);
-          });
-        }
-        cardsGrid.appendChild(card);
-      });
-
-      groupDiv.appendChild(cardsGrid);
-      container.appendChild(groupDiv);
+    // Génération des cartes de session
+    function renderSessions() {
+  const container = document.getElementById('sessions-container');
+  container.innerHTML = '';
+  
+  trainingSessions.forEach(session => {
+    const card = document.createElement('div');
+    card.className = 'border rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md border-gray-200';
+    card.setAttribute('data-session-id', session.id);
+    
+    const isComplet = session.spots === 'COMPLET';
+    const disabledClass = isComplet ? 'bg-gray-400 cursor-not-allowed' : 'bg-custom-orange hover:bg-orange-600';
+    
+    card.innerHTML = `
+      <div class="p-5">
+        <div class="flex justify-between items-start">
+          <h3 class="font-semibold text-gray-900">${session.title}</h3>
+          <span class="session-check hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20
