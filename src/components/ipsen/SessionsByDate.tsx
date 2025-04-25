@@ -15,17 +15,19 @@ const SessionsByDate: React.FC<SessionsByDateProps> = ({ sessions, onSelectSessi
   return (
     <div className="space-y-12">
       {Object.entries(groupedSessions).map(([date, dateSessions]) => (
-        <div key={date} className="mb-8">
+        <div key={date} className="mb-20">
           <h2 className="text-xl font-bold text-left text-gray-700 mb-6">
             {date}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap gap-6">
             {dateSessions.map((session) => (
-              <SessionCard
-                key={session.id}
-                session={session}
-                onSelect={onSelectSession}
-              />
+              <div key={session.id} className="w-full sm:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]">
+                <SessionCard
+                  session={session}
+                  isSelected={false}
+                  onSelect={onSelectSession}
+                />
+              </div>
             ))}
           </div>
         </div>

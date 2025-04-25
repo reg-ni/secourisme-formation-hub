@@ -1,12 +1,13 @@
-
 // Defines the structure of a training session
 export interface TrainingSession {
   id: number;
   title: string;
   date: Date;
   duration: string;
-  spots: number;
+  horaires: string;
+  spots: number | 'COMPLET';
   location: string;
+  tarif: string;
   slug?: string;
 }
 
