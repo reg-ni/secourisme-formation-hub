@@ -216,7 +216,7 @@
 
   Object.entries(grouped).forEach(([date, sessions]) => {
     const wrapper = document.createElement('div');
-    wrapper.className = 'mb-8';
+    wrapper.className = 'mb-20';
 
     const dateHeader = document.createElement('h2');
     dateHeader.className = 'text-xl font-bold text-left text-gray-700 mb-6';
@@ -224,21 +224,18 @@
     wrapper.appendChild(dateHeader);
 
     const grid = document.createElement('div');
-    grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+    grid.className = 'flex flex-wrap gap-6';
 
     sessions.forEach(session => {
+      const cardWrapper = document.createElement('div');
+      cardWrapper.className = 'w-full sm:w-[calc(50%-12px)] xl:w-[calc(33.33%-16px)]';
+
       const card = document.createElement('div');
       card.className = 'w-full border rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md border-gray-200';
       card.setAttribute('data-session-id', session.id);
 
       const isComplet = session.spots === 'COMPLET';
-      const disabledClass = isComplet ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600';
-
-      const button = document.createElement('button');
-      button.className = `select-session-btn w-full mt-4 py-2 px-4 text-sm font-semibold text-white ${disabledClass} rounded transition duration-200`;
-      button.innerText = isComplet ? 'COMPLET' : 'Sélectionner cette session';
-      if (isComplet) button.disabled = true;
-      else button.addEventListener('click', () => openRegistrationModal(session));
+      const buttonClass = isComplet ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600';
 
       card.innerHTML = `
         <div class="p-5">
@@ -259,8 +256,16 @@
           </div>
         </div>
       `;
-      card.querySelector('.mt-3').appendChild(button);
-      grid.appendChild(card);
+
+      const button = document.createElement('button');
+      button.className = `w-full mt-4 py-2 px-4 text-sm font-semibold text-white ${buttonClass} rounded transition duration-200`;
+      button.innerText = isComplet ? 'COMPLET' : 'Sélectionner cette session';
+      if (isComplet) button.disabled = true;
+      else button.addEventListener('click', () => openRegistrationModal(session));
+
+      card.querySelector('.p-5').appendChild(button);
+      cardWrapper.appendChild(card);
+      grid.appendChild(cardWrapper);
     });
 
     wrapper.appendChild(grid);
